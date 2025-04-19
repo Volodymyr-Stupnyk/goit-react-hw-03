@@ -10,13 +10,13 @@ import initialContacts from './assets/Contacts.json'
 const App = () => { 
 
   const [contacts, setContacts] = useState(() => {
-    const saved = localStorage.getItem("saved-contact");
+    const saved = localStorage.getItem('saved-contact');
     return saved ? JSON.parse(saved) : initialContacts;
   });
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+    window.localStorage.setItem('saved-contact', JSON.stringify(contacts));
   }, [contacts]);
 
   const filteredContacts = contacts.filter(contact =>
